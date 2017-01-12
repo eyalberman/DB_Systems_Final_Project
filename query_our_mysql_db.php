@@ -1,3 +1,10 @@
+<html>
+  <head>
+    <title> PHP Test</title>
+  </head>
+  <body>
+
+
 <?php
 $servername = "mysqlsrv.cs.tau.ac.il";
 $username = "DbMysql03";
@@ -11,7 +18,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-echo "conn good";
+echo "DB conn IS working!". PHP_EOL;
 
 // $sql = "Select rental_id, rental_date from rental where inventory_id = 10 and customer_id = 3";
 $sql = "Select * from Tips limit 1";
@@ -19,17 +26,8 @@ $sql = "Select * from Tips limit 1";
 $result = $conn->query($sql);
 
 
-    echo $_POST['value'];
-?>
 
-<html>
-<form method="post" action="">
-<input type="text" name="value">
-<input type="submit">
-</form>
-</html>
-<?php
-echo "results". $result->num_rows;
+echo "results for query ". $sql. " are \r\n";
 
 if ($result->num_rows > 0){
   while ($row = $result->fetch_assoc()) {
@@ -40,3 +38,4 @@ if ($result->num_rows > 0){
 }
 $conn -> close();
  ?>
+</html>
