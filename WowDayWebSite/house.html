@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style> 
+<style>
 .flex-container {
     display: -webkit-flex;
-    display: flex;  
+    display: flex;
     -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
     text-align: center;
@@ -19,8 +19,10 @@
 .article {
     text-align: left;
 }
-
-header {background: red;color:black;}
+mark {
+     background-color: grey;
+}
+header {background: black;color:white;}
 footer {background: #aaa;color:white;}
 .nav {background:#eee;}
 
@@ -40,9 +42,10 @@ footer {background: #aaa;color:white;}
 </style>
 </head>
 <body background="bk2.jpg">
+
 <div class="flex-container">
 <header>
-  <h1>Early sleeping</h1>
+  <h1>House recommendation</h1>
 </header>
 
 <nav class="nav">
@@ -59,15 +62,44 @@ footer {background: #aaa;color:white;}
 </nav>
 
 <article class="article">
-  <h1>Early sleeping</h1>
-  <p>Get the city with the least night life,
-  so you could go to sleep without interference!.</p>
+  <h1><mark>House recommendation </mark></h1>
+  <p><mark>You trust us? let us recommend something special for you.</mark></p>
   <br><br><br>
 </article>
 
+
 <div align="center">
-<button type="button">Get Quiet City!</button>
+	<mark>Query 1:</mark>
+	<form action="house.php" method = "POST">
+	<mark>City:</mark> 
+		<select name="city1">
+			<option value="Tel-Aviv">Tel Aviv </option>
+			<option value="Amsterdam">Amsterdam</option>
+			<option value="Baghdad">Baghdad</option>
+			<option value="Berlin">Berlin</option>
+		</select>
+	<input type="submit" name="submit"/>
+	</form>
 </div>
+
+<br><br>
+
+<div align="center">
+<mark>
+Query 2:
+<form action="house2.php" method = "POST">
+<mark>City:</mark>
+	<select name="city2">
+		<option value="Tel-Aviv">Tel Aviv </option>
+		<option value="Amsterdam">Amsterdam</option>
+		<option value="Baghdad">Baghdad</option>
+		<option value="Berlin">Berlin</option>
+     </select>
+<input type="submit" name="submit"/>
+</form>
+</mark>
+</div>
+
 
 <footer>Copyright &copy; Amit,Liran,Noam,Eyal</footer>
 </div>

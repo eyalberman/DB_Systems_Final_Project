@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style> 
+<style>
 .flex-container {
     display: -webkit-flex;
-    display: flex;  
+    display: flex;
     -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
     text-align: center;
@@ -19,8 +19,10 @@
 .article {
     text-align: left;
 }
-
-header {background: red;color:black;}
+mark {
+     background-color: grey;
+}
+header {background: black;color:white;}
 footer {background: #aaa;color:white;}
 .nav {background:#eee;}
 
@@ -40,9 +42,10 @@ footer {background: #aaa;color:white;}
 </style>
 </head>
 <body background="bk2.jpg">
+
 <div class="flex-container">
 <header>
-  <h1>Early sleeping</h1>
+  <h1>Wow Day</h1>
 </header>
 
 <nav class="nav">
@@ -59,16 +62,28 @@ footer {background: #aaa;color:white;}
 </nav>
 
 <article class="article">
-  <h1>Early sleeping</h1>
-  <p>Get the city with the least night life,
-  so you could go to sleep without interference!.</p>
+  <h1><mark>Day Planing</mark></h1>
+  <p><mark>WOW day, from early on until early morning, whatever your desires, we will
+	help you schedule everything, to one single extraordinary WOW day.</mark></p>
   <br><br><br>
+  <p><mark><strong>Select your desired location, to start </strong></mark></p>
 </article>
 
-<div align="center">
-<button type="button">Get Quiet City!</button>
-</div>
+<form action="test.php" method = "POST">
+  <input type = "text" name = "limit" value="limit">
+  <input type = "text" name = "keyword" value="keyword">
+  <input type = "submit" value = "Submit" />
+</form>
 
+<div align="center">
+<select name="PartOfTheDayDropdown">
+  <option value="T">Tel Aviv </option>
+  <option value="A">Amsterdam</option>
+  <option value="Ba">Bagdad</option>
+  <option value="Be">Berlin</option>
+</select>
+<button type="button">Start Planing!</button>
+</div>
 <footer>Copyright &copy; Amit,Liran,Noam,Eyal</footer>
 </div>
 

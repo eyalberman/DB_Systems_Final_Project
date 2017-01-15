@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style> 
+<style>
 .flex-container {
     display: -webkit-flex;
-    display: flex;  
+    display: flex;
     -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
     text-align: center;
@@ -19,8 +19,10 @@
 .article {
     text-align: left;
 }
-
-header {background: red;color:black;}
+mark {
+     background-color: grey;
+}
+header {background: black;color:white;}
 footer {background: #aaa;color:white;}
 .nav {background:#eee;}
 
@@ -40,9 +42,10 @@ footer {background: #aaa;color:white;}
 </style>
 </head>
 <body background="bk2.jpg">
+
 <div class="flex-container">
 <header>
-  <h1>Early sleeping</h1>
+  <h1>Tips Search</h1>
 </header>
 
 <nav class="nav">
@@ -59,14 +62,42 @@ footer {background: #aaa;color:white;}
 </nav>
 
 <article class="article">
-  <h1>Early sleeping</h1>
-  <p>Get the city with the least night life,
-  so you could go to sleep without interference!.</p>
+  <h1><mark>Tips searching</mark></h1>
+  <p><mark>looking for spespic tip? try our world known algorthim, which combine time of the day selction with keyword search.</mark></p>
   <br><br><br>
 </article>
 
 <div align="center">
-<button type="button">Get Quiet City!</button>
+<mark>Query 3:</mark>
+<form action="Tips.php" method = "POST">
+  <input type = "text" name = "keyword" value="Tips keyword">
+</div>
+
+
+<div align="center">
+Morning: <select name="isMorning">
+  <option value="1">True</option>
+  <option value="0">False</option>
+</select>
+</div>
+
+<div align="center">
+Evening: <select name="isEvening">
+  <option value="1">True</option>
+  <option value="0">False</option>
+</select>
+</div>
+
+<div align="center">
+Night: <select name="isNight">
+  <option value="1">True</option>
+  <option value="0">False</option>
+</select>
+</div>
+
+<div align="center">
+  <input type = "submit" value = "Submit" />
+</form>
 </div>
 
 <footer>Copyright &copy; Amit,Liran,Noam,Eyal</footer>
