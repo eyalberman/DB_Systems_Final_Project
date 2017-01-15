@@ -1,0 +1,29 @@
+SELECT
+  CASE WHEN street2 = street3
+    THEN street1
+  WHEN street3 = street4
+    THEN street2
+  WHEN street3 != street4
+    THEN street3
+  WHEN street2 != street3
+    THEN street2 END street, cityDesc,
+  count(*)
+FROM (
+
+       SELECT
+         SUBSTRING_INDEX(venueAddress, ' ', 1) AS street1,
+         SUBSTRING_INDEX(venueAddress, ' ', 2) AS street2,
+         SUBSTRING_INDEX(venueAddress, ' ', 3) AS street3,
+         SUBSTRING_INDEX(venueAddress, ' ', 4) AS street4,
+         venueAddress                          AS street,
+         cityDesc,
+         Venues.venueID
+
+       FROM Venues
+         Join VenueToCategory vtc on vtc.VenueID = Venues.VenueID
+         Join Category c on c.categoryID = vtc.categoryID
+         join Cities on Cities.cityId = Venues.cityID
+       where CategoryMaster = 'Culture'
+     ) a
+group by 1,2 order by 3 DESC ) c
+where street is not null and street not in ('?','??','???','????','?????','??????','???????','????????')
