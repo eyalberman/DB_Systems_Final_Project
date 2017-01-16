@@ -56,6 +56,7 @@ if ($result->num_rows > 0){
     echo "Address :". $row["venueAddress"] . "<br>";
     echo "URL :". $row["venueURL"] . "<br>";
     echo "LikesCount :". $row["likesCount"] . "<br><br>";
+    echo "update likes count in real time] :". $row["likesCount"] . "<br><br>";
 	echo "</mark> <br>";
   }
 } else {

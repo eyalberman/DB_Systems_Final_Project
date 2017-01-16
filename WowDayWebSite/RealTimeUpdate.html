@@ -40,12 +40,41 @@ footer {background: #aaa;color:white;}
     footer {-webkit-order:3;order:3;}
 }
 </style>
+	<script type="text/javascript">
+         <!--
+            function getVenueFromFS() {
+			//4a1ef31ff964a520ef7b1fe3
+				var venueFSID = document.getElementById('FsId').value;
+				var xhttp = new XMLHttpRequest();
+				var url = 'https://api.foursquare.com/v2/venues/'+venueFSID+'?oauth_token=MOBUA5IQL5PJGHPMAEU22OQDWIJJWF425XO5JLOSFHGJOTAC&v=20161224';
+				xhttp.onreadystatechange = function() 
+				{
+					if (this.readyState == 4 && this.status == 200) 
+					{
+					   var obj = JSON.parse(xhttp.responseText);
+					    alert("venue number: " + venueFSID + " was retrieved successfully"); 
+						//alert(obj['response']);
+						//alert(obj['venue']);
+						//alert(obj['rating']);
+						//alert("BB" + obj['response']['venue'][´likes´][´count´]);
+						//var p1=obj['response']['venue'][´likes´][´count´];
+						document.write("BB" + obj['response']['venue'][´likes´][´count´]);
+					   return obj['response']['venue'][´likes´][´count´];
+					}
+				};
+				xhttp.open("GET", url, true);
+				xhttp.send();
+				//document.write(obj['response']['venue'][´likes´][´count´]);
+            }
+		
+         //-->
+	</script>
 </head>
 <body background="bk2.jpg">
 
 <div class="flex-container">
 <header>
-  <h1>Wow Day</h1>
+  <h1>Real Time Update</h1>
 </header>
 
 <nav class="nav">
@@ -62,26 +91,25 @@ footer {background: #aaa;color:white;}
 </nav>
 
 <article class="article">
-  <h1><mark>Day Planing</mark></h1>
-  <p><mark>WOW day, from early on until early morning, whatever your desires, we will
-	help you schedule everything, to one single extraordinary WOW day.</mark></p>
+  <h1><mark>Real Time Update</mark></h1>
+  <p><mark>Query: ....</mark></p>
   <br><br><br>
-  <p><mark><strong>Select your desired location, to start </strong></mark></p>
 </article>
 
 <div align="center">
-	<mark>Day planing:</mark>
-	<form action="Default.php" method = "POST">
-	<mark>City:</mark> 
-		<select name="city">
-			<option value="Tel-Aviv">Tel Aviv </option>
-			<option value="Amsterdam">Amsterdam</option>
-			<option value="Baghdad">Baghdad</option>
-			<option value="Berlin">Berlin</option>
-		</select>
-	<input type="submit" name="submit"/>
-	</form>
+	<input type="text"  name="FsId" value="FsId" id='FsId' />
+	<input type="button" onclick="getVenueFromFS()" value="update" />
 </div>
+
+
+<div align="center">
+<mark>Query 7:</mark>
+<form action="RealTimeUpdate.php" method = "POST">
+  <input type = "text" name = "keyword" value="Tips keyword">
+  <input type = "submit" value = "Submit" />
+</div>
+
+
 
 <footer>Copyright &copy; Amit,Liran,Noam,Eyal</footer>
 </div>
